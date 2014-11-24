@@ -11,6 +11,8 @@ desc "Default task : build html and index"
 task :default do
     Rake::Task[:genhtml].invoke
     sleep 0.2
+    Rake::Task[:remrev].invoke
+    sleep 0.2
     Rake::Task[:genindex].invoke
 end
 
@@ -44,7 +46,13 @@ task :genhtml, [:theme, :backend] do |t, args|
         end
         sleep 0.1
     end
+end
+
+desc "No rev"
+task :remrev do
+    # Delete rev and build date
     `sed -i '/^Last updated/d' #{html_folder}/*.html`
+    `sed -i -e '/<div id="footer-text">/{n;d}' #{html_folder}/*.html`
 end
 
 desc "Generate one file"
