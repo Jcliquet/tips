@@ -1,0 +1,63 @@
+network - Linux network bonding (teaming)
+=========================================
+
+Install NICs on separate busses
+-------------------------------
+
+For availability.
+
+Configure the module
+--------------------
+
+el5 : in `/etc/modprobe.conf`        
+
+el6 : in `/etc/modprobe.d/bond.conf`
+
+--------------------------------------------------------------------------------
+alias bond0 bonding
+--------------------------------------------------------------------------------
+
+Configure the interfaces
+------------------------
+
+In `/etc/sysconfig/network-scripts`
+
+ifcfg-bond0
+~~~~~~~~~~~
+
+--------------------------------------------------------------------------------
+DEVICE=bond0
+IPADDR=192.168.0.1
+PREFIX=24
+ONBOOT=yes
+BOOTPROTO=none
+BONDING_OPTS="mode=6 miimon=100 use_carrier=0"
+--------------------------------------------------------------------------------
+
+ifcfg-eth0
+~~~~~~~~~~
+
+--------------------------------------------------------------------------------
+DEVICE=eth0
+MASTER=bond0
+SLAVE=yes
+ONBOOT=yes
+BOOTPROTO=none
+--------------------------------------------------------------------------------
+
+ifcfg-eth1
+~~~~~~~~~~
+
+--------------------------------------------------------------------------------
+DEVICE=eth1
+MASTER=bond0
+SLAVE=yes
+ONBOOT=yes
+BOOTPROTO=none
+--------------------------------------------------------------------------------
+
+
+Tuning parameters
+-----------------
+
+Cf bonding.txt (rpm = kernel-docs)

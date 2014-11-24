@@ -1,0 +1,24 @@
+cyanogen - update
+=================
+
+Example :
+
+-----------------------------------------------------------------------------
+sudo apt-get -y install android-tools-adb
+
+# get previously downloaded firmware
+adb pull /sdcard/cmupdater/cm-10.2.0-maguro.zip .
+
+# Reboot in recovery mode
+adb reboot recovery
+
+# Boot menu : choose Install zip from sideload
+adb sideload cm-10.2.0-maguro.zip
+-----------------------------------------------------------------------------
+
+Before rebooting :
+
+* wipe cache partition
+* advanced -> wipe dalvik cache
+
+Additional tag : android

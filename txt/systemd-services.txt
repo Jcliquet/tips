@@ -1,0 +1,18 @@
+systemd - services
+==================
+
+Examples :
+
+--------------------------------------------------------------------------------
+systemctl restart sshd.service
+
+systemctl list-unit-files --type=service
+--------------------------------------------------------------------------------
+
+To enable completion on systemctl parameters :
+
+--------------------------------------------------------------------------------
+yum -y install bash-completion
+--------------------------------------------------------------------------------
+
+Additional tags : systemctl, service
