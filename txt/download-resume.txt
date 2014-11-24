@@ -1,5 +1,5 @@
-Resume downloads
-================
+download - resume
+=================
 
 Resume an scp transfer :
 
@@ -13,3 +13,4 @@ Resume a download :
 wget -c http://url/to/file
 -----------------------------------------------------------------------------
 
+Additional tags : rsync, wget, scp, downloads

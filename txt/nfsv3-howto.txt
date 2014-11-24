@@ -1,5 +1,5 @@
-Basic NFS v3 server
-===================
+NFS - basic v3 server
+=====================
 
 On RHEL 6.
 

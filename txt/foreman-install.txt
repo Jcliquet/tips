@@ -1,4 +1,4 @@
-= Install the Foreman and smart proxies with Puppet masters
+= Foreman - install with Puppet masters on smart proxies
 
 == Architecture
 
