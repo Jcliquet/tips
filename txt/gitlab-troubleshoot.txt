@@ -9,6 +9,8 @@ In comparison to
 https://github.com/gitlabhq/gitlab-public-wiki/wiki/Trouble-Shooting-Guide
 for the standard version, not working with omnibus.
 
+Edit : fixed on 28 Oct 2014 - commit 7d561b7
+
 Change admin password :
 
 -----------------------------------------------------------------------------
@@ -32,6 +34,7 @@ Troubleshooting commands :
 -----------------------------------------------------------------------------
 gitlab-rails console production
 gitlab-rake
+gitlab-rake cache:clear
 -----------------------------------------------------------------------------
 
 Additional tag : omnibus
