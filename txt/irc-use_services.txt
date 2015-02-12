@@ -1,0 +1,16 @@
+IRC - use services
+==================
+
+Examples :
+
+-----------------------------------------------------------------------------
+/msg operserv mode #mychannel +o louis
+
+/msg operserv mode #mychannel +nt
+/msg operserv mode #mychannel -i
+
+/msg chanserv register #mychannel
+
+/msg botserv assign #mychannel ChanServ
+-----------------------------------------------------------------------------
+

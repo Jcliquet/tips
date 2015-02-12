@@ -1,0 +1,6 @@
+Hiera - Implicit lookup
+=======================
+
+`class x($y) { }` will auto lookup `x::y`
+
+Additional tag : puppet
