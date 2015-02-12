@@ -45,7 +45,7 @@ import contextlib, sys
 class NullDevice():
     def write(self, s): pass
 
-@contextlib.contextmanager # <- decorator for the function 
+@contextlib.contextmanager # <- decorator for the function
 def nooutput():
     stdout_ori,stderr_ori=sys.stdout,sys.stderr
     sys.stdout,sys.stderr=NullDevice(),NullDevice()

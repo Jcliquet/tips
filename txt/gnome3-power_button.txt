@@ -1,4 +1,4 @@
-gnome 3 - make the power button interactive 
+gnome 3 - make the power button interactive
 ===========================================
 
 Cf https://wiki.archlinux.org/index.php/GNOME_3#GDM_Customization

@@ -2,7 +2,7 @@ vim - highlight lines longer than 80 chars
 ==========================================
 
 --------------------------------------------------------------------------------
-/^.\{80}\zs.\+ 
+/^.\{80}\zs.\+
 --------------------------------------------------------------------------------
 
-Additional tags : vi, eighty, character, characters, line, wrap, wrapping 
+Additional tags : vi, eighty, character, characters, line, wrap, wrapping

@@ -3,7 +3,7 @@ git - create a ro and rw repo
 
 Tested on RHEL 6.
 
-1° Some settings 
+1° Some settings
 ----------------
 
 --------------------------------------------------------------------------------
@@ -12,7 +12,7 @@ repohost='el6'
 repopath='/var/lib/git'
 --------------------------------------------------------------------------------
 
-2° On the repo 
+2° On the repo
 --------------
 
 --------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ git-daemon : ALL
 Give an access to the repo for Apache :
 
 --------------------------------------------------------------------------------
-# /etc/httpd/conf.d/git-ro.conf 
+# /etc/httpd/conf.d/git-ro.conf
 
 Alias /git "/var/lib/git/"
 <Directory "/var/lib/git/">
@@ -87,7 +87,7 @@ Create the repo :
 
 --------------------------------------------------------------------------------
 cd $repopath
-mkdir $projectname 
+mkdir $projectname
 cd $projectname
 git --bare init
 chown -R apache $repopath/$projectname
@@ -98,7 +98,7 @@ sudo -u apache git update-server-info
 --------------------------------------------------------------------------------
 
 
-2° On the workstation 
+2° On the workstation
 ---------------------
 
 Initialize the repo.
@@ -118,7 +118,7 @@ git push origin master
 -----------
 
 --------------------------------------------------------------------------------
-git clone git://$repohost/$projectname 
+git clone git://$repohost/$projectname
 --------------------------------------------------------------------------------
 
 

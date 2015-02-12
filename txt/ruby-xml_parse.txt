@@ -21,7 +21,7 @@ We can search an element like this :
 [source, ruby]
 --------------------------------------------------------------------------------
 require 'rexml/document'
-File.open('filezilla.xml') { 
+File.open('filezilla.xml') {
   |f| xdoc = REXML::Document.new(f)
   puts xdoc.elements["//Setting[@name='Last local directory']"].text
 }

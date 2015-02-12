@@ -9,7 +9,7 @@ For availability.
 Configure the module
 --------------------
 
-el5 : in `/etc/modprobe.conf`        
+el5 : in `/etc/modprobe.conf`
 
 el6 : in `/etc/modprobe.d/bond.conf`
 

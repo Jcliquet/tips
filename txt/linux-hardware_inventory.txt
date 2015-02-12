@@ -4,7 +4,7 @@ linux - hardware inventory
 [source,sh]
 -----------------------------------------------------------------------------
 # Bus
-lspci 
+lspci
 lsusb
 
 # memory

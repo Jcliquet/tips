@@ -1,4 +1,4 @@
-vim - snipmate 
+vim - snipmate
 ==============
 
 List loaded snippets :

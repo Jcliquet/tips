@@ -18,7 +18,7 @@ yum -y install ImageMagick
 yum -y install ruby-RMagick # needs EPEL
 yum -y install liberation-fonts # RHEL 5
 yum -y install liberation-fonts-common liberation-sans-fonts # RHEL 6
-gem install gruff 
+gem install gruff
 --------------------------------------------------------------------------------
 
 You can download the gem on link:http://www.rubygems.org[http://www.rubygems.org]
@@ -57,7 +57,7 @@ Download Development Kit from link:http://www.rubyinstaller.org/downloads/[http:
 
 * `DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe`
 
-Check the installation procedure from link:https://github.com/oneclick/rubyinstaller/wiki/Development-Kit[https://github.com/oneclick/rubyinstaller/wiki/Development-Kit] 
+Check the installation procedure from link:https://github.com/oneclick/rubyinstaller/wiki/Development-Kit[https://github.com/oneclick/rubyinstaller/wiki/Development-Kit]
 
 Unzip in `C:\DevKit`
 
@@ -74,7 +74,7 @@ Download MinGW from link:http://sourceforge.net/projects/mingw/files/[http://sou
 
 * `x86-mingw32-build-1.0-sh.tar.bz2`
 
-Install in `C:\MinGW` 
+Install in `C:\MinGW`
 
 During the installation, select 'MinGW Developer Toolkit'.
 

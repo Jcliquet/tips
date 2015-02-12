@@ -1,11 +1,11 @@
-puppet - install multiple packages at once 
+puppet - install multiple packages at once
 ==========================================
 
 Example :
 
 --------------------------------------------------------------------------------
 $ssh_packages = ['openssh','openssh-clients','openssh-server']
- 
+
 package { $ssh_packages:
     ensure => present,
 }

@@ -13,7 +13,7 @@ CITY=lille
 ORG=labolinux
 EMAIL=foo@labolinux.fr
 
-NODE1=squeeze1 # <- will hold the CA and OpenVPN server 
+NODE1=squeeze1 # <- will hold the CA and OpenVPN server
 NODE2=squeeze2
 -----------------------------------------------------------------------------
 

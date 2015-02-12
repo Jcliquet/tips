@@ -4,7 +4,7 @@ mcollective - keepalive
 Useful for :
 
 * nodes behind firewalls closing connections after a while
-* brokers in failover mode behind a vIP 
+* brokers in failover mode behind a vIP
 * ...
 
 When they send nothing, the nodes don't see that the link in down. They don't reconnect.

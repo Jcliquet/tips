@@ -4,6 +4,6 @@ memory - clean cache
 Dangerous on production servers !
 
 --------------------------------------------------------------------------------
-sync && sudo sysctl -w vm.drop_caches=3 
+sync && sudo sysctl -w vm.drop_caches=3
 sysctl -w vm.drop_caches=0
 --------------------------------------------------------------------------------

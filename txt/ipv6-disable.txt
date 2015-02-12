@@ -9,7 +9,7 @@ alias net-pf-10 off
 options ipv6 disable=1
 --------------------------------------------------------------------------------
 
-In `/etc/sysctl.conf` 
+In `/etc/sysctl.conf`
 
 RHEL5, RHEL6 :
 

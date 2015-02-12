@@ -1,4 +1,4 @@
-ruby - case statements on the type of a variable 
+ruby - case statements on the type of a variable
 ================================================
 
 [source, ruby]

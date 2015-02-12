@@ -119,6 +119,6 @@ apt-get -y install virt-manager
 # CD burn : brasero
 # image viewer : eog
 
-# Misc. 
+# Misc.
 apt-get -y install recode
 --------------------------------------------------------------------------------

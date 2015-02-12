@@ -7,7 +7,7 @@ rpmbuild --rebuild the_package.src.rpm
 # or if you need to edit the spec file :
 
 rpm -ivh the_package.src.rpm
-cd $(rpm --eval %_topdir) 
+cd $(rpm --eval %_topdir)
 rpmbuild -bb SPECS/the_package.spec
 --------------------------------------------------------------------------------
 

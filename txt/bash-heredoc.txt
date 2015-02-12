@@ -1,7 +1,7 @@
 bash - heredoc
 ==============
 
-You can quote the EOF indicator to disable variable interpretation. 
+You can quote the EOF indicator to disable variable interpretation.
 
 [source, sh]
 --------------------------------------------------------------------------------

@@ -13,5 +13,5 @@ Test !
 $ SEARCH=pim; echo "pim pam poum" | awk "/$SEARCH/ && !/poum/ { print }"
 
 $ SEARCH=pim; echo "pim pam poum" | awk "/$SEARCH/ && !/pom/ { print }"
-pim pam poum 
+pim pam poum
 --------------------------------------------------------------------------------

@@ -10,12 +10,12 @@ require 'logger'
 
 class Probe
   def initialize
-    @LOG = Logger.new('/tmp/probe.log', 'daily') 
+    @LOG = Logger.new('/tmp/probe.log', 'daily')
   end
 
   def mainloop
     loop do
-       @LOG.info('Louis was here') 
+       @LOG.info('Louis was here')
        sleep(60)
     end
   end

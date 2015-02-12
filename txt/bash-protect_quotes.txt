@@ -11,5 +11,5 @@ echo "\"Foo: 'Bar'\"" > /tmp/test2
 
 cat /tmp/test1          # -> "Foo: 'Bar'"
 
-cat /tmp/test2          # -> "Foo: 'Bar'"  
+cat /tmp/test2          # -> "Foo: 'Bar'"
 --------------------------------------------------------------------------------

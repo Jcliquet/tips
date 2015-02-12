@@ -20,7 +20,7 @@ Destination : `remote:8080`
 
 Bouton 'Add'
 
-In 'Forwarded ports' you should see: 
+In 'Forwarded ports' you should see:
 
 --------------------------------------------------------------------------------
 L8080 remote:8080

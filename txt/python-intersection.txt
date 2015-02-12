@@ -8,5 +8,5 @@ l2=['pam','pum']
 print l1
 print l2
 print filter(l1.__contains__,l2)
-print set(l1).intersection(l2) 
+print set(l1).intersection(l2)
 --------------------------------------------------------------------------------

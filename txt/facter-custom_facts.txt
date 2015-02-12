@@ -1,4 +1,4 @@
-facter - custom facts 
+facter - custom facts
 =====================
 
 [source, sh]

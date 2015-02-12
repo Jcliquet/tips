@@ -1,4 +1,4 @@
-gnome 3 - disable the visual keyboard in the unlock screen 
+gnome 3 - disable the visual keyboard in the unlock screen
 ==========================================================
 
 --------------------------------------------------------------------------------

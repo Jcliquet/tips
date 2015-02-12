@@ -1,4 +1,4 @@
-ruby - temporary silent warning 
+ruby - temporary silent warning
 ===============================
 
 [source, ruby]

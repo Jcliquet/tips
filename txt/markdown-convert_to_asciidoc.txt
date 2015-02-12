@@ -1,4 +1,4 @@
-markdown - convert to asciidoc 
+markdown - convert to asciidoc
 ==============================
 
 Example :

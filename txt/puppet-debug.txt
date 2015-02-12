@@ -6,7 +6,7 @@ openssl s_client -connect puppet.example.com:8140
 
 openssl s_client -connect puppet.example.com:8140 \
  -CAfile /var/lib/puppet/ssl/certs/ca.pem \
- -cert /var/lib/puppet/ssl/certs/mynode.example.com.pem \ 
+ -cert /var/lib/puppet/ssl/certs/mynode.example.com.pem \
  -key /var/lib/puppet/ssl/private_keys/mynode.example.com.pem
 
 telnet puppet.example.com 8140
