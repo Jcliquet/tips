@@ -555,6 +555,7 @@ asciidoc.install();
 <div class="paragraph"><p>In comparison to
 <a href="https://github.com/gitlabhq/gitlab-public-wiki/wiki/Trouble-Shooting-Guide">https://github.com/gitlabhq/gitlab-public-wiki/wiki/Trouble-Shooting-Guide</a>
 for the standard version, not working with omnibus.</p></div>
+<div class="paragraph"><p>Edit : fixed on 28 Oct 2014 - commit 7d561b7</p></div>
 <div class="paragraph"><p>Change admin password :</p></div>
 <div class="listingblock">
 <div class="content">
@@ -575,7 +576,8 @@ user.save</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre><code>gitlab-rails console production
-gitlab-rake</code></pre>
+gitlab-rake
+gitlab-rake cache:clear</code></pre>
 </div></div>
 <div class="paragraph"><p>Additional tag : omnibus</p></div>
 </div>

@@ -552,11 +552,11 @@ asciidoc.install();
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="k">module</span> <span class="nn">Kernel</span>
     <span class="k">def</span> <span class="nf">with_warnings_suppressed</span>
-        <span class="n">saved_verbosity</span> <span class="o">=</span> <span class="vg">$-v</span>
-        <span class="vg">$-v</span> <span class="o">=</span> <span class="kp">nil</span>
+        <span class="n">saved_verbosity</span> <span class="o">=</span> <span class="vg">$-</span><span class="n">v</span>
+        <span class="vg">$-</span><span class="n">v</span> <span class="o">=</span> <span class="kp">nil</span>
     <span class="k">yield</span>
     <span class="k">ensure</span>
-        <span class="vg">$-v</span> <span class="o">=</span> <span class="n">saved_verbosity</span>
+        <span class="vg">$-</span><span class="n">v</span> <span class="o">=</span> <span class="n">saved_verbosity</span>
     <span class="k">end</span>
 <span class="k">end</span>
 
