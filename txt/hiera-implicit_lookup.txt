@@ -1,4 +1,4 @@
-Hiera - Implicit lookup
+hiera - implicit lookup
 =======================
 
 `class x($y) { }` will auto lookup `x::y`

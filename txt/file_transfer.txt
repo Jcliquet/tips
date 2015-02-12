@@ -1,4 +1,4 @@
-Network file transfer - without scp and netcat
+network file transfer - without scp and netcat
 ==============================================
 
 -----------------------------------------------------------------------------
