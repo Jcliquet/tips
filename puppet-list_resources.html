@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>network file transfer - without scp and netcat</title>
+<title>puppet - list resources applied on a node</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,19 +544,14 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>network file transfer - without scp and netcat</h1>
+<h1>puppet - list resources applied on a node</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre><code>ssh some-server ‘cd /some/dir &amp;&amp; tar cz dir’ | tar xz</code></pre>
-</div></div>
-<div class="paragraph"><p>and the other direction :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>tar cz dir | ssh some-server ‘cd /some/dir &amp;&amp; tar xz’</code></pre>
+<pre><code>cat $(puppet agent --configprint resourcefile)</code></pre>
 </div></div>
 </div>
 </div>
