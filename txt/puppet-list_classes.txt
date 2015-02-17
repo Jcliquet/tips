@@ -1,22 +1,10 @@
 puppet - list applied classes
 =============================
 
-[source, ruby]
---------------------------------------------------------------------------------
-#!/usr/bin/ruby
-require 'puppet'
-require 'facter'
-require 'yaml'
+On the node :
 
-fqdn = Facter.value('fqdn')
-localconfig = "#{Puppet[:clientyamldir]}/catalog/#{fqdn}.yaml"
-
-lc = File.open(localconfig)
-pupconf = YAML.load(lc)
-
-pupconf.classes.each { |c| puts c }
---------------------------------------------------------------------------------
-
-Cf http://www.devco.net/code/parselocalconfig.rb
+-----------------------------------------------------------------------------
+cat $(puppet agent --configprint classfile)
+-----------------------------------------------------------------------------
 
 Additional tag : class
