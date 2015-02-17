@@ -549,21 +549,11 @@ asciidoc.install();
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph"><p>On the node :</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="c1">#!/usr/bin/ruby</span>
-<span class="nb">require</span> <span class="s1">&#39;puppet&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;facter&#39;</span>
-<span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
-
-<span class="n">fqdn</span> <span class="o">=</span> <span class="no">Facter</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;fqdn&#39;</span><span class="p">)</span>
-<span class="n">localconfig</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">Puppet</span><span class="o">[</span><span class="ss">:clientyamldir</span><span class="o">]</span><span class="si">}</span><span class="s2">/catalog/</span><span class="si">#{</span><span class="n">fqdn</span><span class="si">}</span><span class="s2">.yaml&quot;</span>
-
-<span class="n">lc</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">localconfig</span><span class="p">)</span>
-<span class="n">pupconf</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span>
-
-<span class="n">pupconf</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">c</span> <span class="p">}</span>
-</pre></div></div></div>
-<div class="paragraph"><p>Cf <a href="http://www.devco.net/code/parselocalconfig.rb">http://www.devco.net/code/parselocalconfig.rb</a></p></div>
+<div class="content">
+<pre><code>cat $(puppet agent --configprint classfile)</code></pre>
+</div></div>
 <div class="paragraph"><p>Additional tag : class</p></div>
 </div>
 </div>
