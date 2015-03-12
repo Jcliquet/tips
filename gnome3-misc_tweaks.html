@@ -552,7 +552,13 @@ asciidoc.install();
 <div class="paragraph"><p>Those are some of my custom settings for Gnome 3 on Ubuntu 12.04</p></div>
 <div class="paragraph"><p>With a standard user :</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gsettings <span class="nb">set </span>org.gnome.shell.clock show-date <span class="nb">true</span>
+<div class="content"><div class="highlight"><pre>gsettings <span class="nb">set </span>org.gnome.desktop.media-handling autorun-never <span class="nb">true</span>
+
+gsettings <span class="nb">set </span>org.gnome.shell.calendar show-weekdate <span class="nb">true</span>
+
+<span class="c"># Depending on the gnome shell version :</span>
+gsettings <span class="nb">set </span>org.gnome.desktop.interface clock-show-date <span class="nb">true</span>
+gsettings <span class="nb">set </span>org.gnome.shell.clock show-date <span class="nb">true</span>
 
 gsettings <span class="nb">set </span>org.gnome.SessionManager <span class="nb">logout</span>-prompt <span class="s1">&#39;false&#39;</span>
 
