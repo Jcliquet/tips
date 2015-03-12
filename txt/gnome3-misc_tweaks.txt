@@ -7,6 +7,12 @@ With a standard user :
 
 [source, sh]
 --------------------------------------------------------------------------------
+gsettings set org.gnome.desktop.media-handling autorun-never true
+
+gsettings set org.gnome.shell.calendar show-weekdate true
+
+# Depending on the gnome shell version :
+gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.shell.clock show-date true
 
 gsettings set org.gnome.SessionManager logout-prompt 'false'
