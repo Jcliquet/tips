@@ -551,7 +551,7 @@ asciidoc.install();
 <div class="sectionbody">
 <div class="paragraph"><p>With a standard user :</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys custom-keybindings <span class="s2">&quot;[&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/&#39;,&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/&#39;,&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/&#39;]&quot;</span>
+<div class="content"><div class="highlight"><pre>gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys custom-keybindings <span class="s2">&quot;[&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/&#39;,&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/&#39;,&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/&#39;, &#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/&#39;]&quot;</span>
 
 gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;v&#39;</span>
 gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ <span class="nb">command</span> <span class="s1">&#39;gvim&#39;</span>
@@ -564,6 +564,11 @@ gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-ke
 gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;f&#39;</span>
 gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ <span class="nb">command</span> <span class="s1">&#39;iceweasel&#39;</span>
 gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name <span class="s1">&#39;Firefox&#39;</span>
+
+
+gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;g&#39;</span>
+gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ <span class="nb">command</span> <span class="s1">&#39;chromium --incognito&#39;</span>
+gsettings <span class="nb">set </span>org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name <span class="s1">&#39;Chromium&#39;</span>
 </pre></div></div></div>
 <div class="paragraph"><p>Additional tags : gnome3, tweak</p></div>
 </div>
