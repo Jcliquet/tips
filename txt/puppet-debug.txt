@@ -1,7 +1,7 @@
 puppet - debug
 ==============
 
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 openssl s_client -connect puppet.example.com:8140
 
 openssl s_client -connect puppet.example.com:8140 \
@@ -13,5 +13,16 @@ telnet puppet.example.com 8140
 
 puppet agent --test --debug --verbose
 
+# Puppet master v. 3 in debug mode :
 puppet master --no-daemonize --debug --verbose --trace
---------------------------------------------------------------------------------
+
+# Puppet master v. 4 in debug mode :
+/opt/puppetlabs/bin/puppetserver foreground --debug
+-----------------------------------------------------------------------------
+
+Inspect a variable :
+
+-----------------------------------------------------------------------------
+notice(inline_template("<%= @the_var.inspect %>"))
+-----------------------------------------------------------------------------
+
