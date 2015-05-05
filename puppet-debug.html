@@ -568,6 +568,11 @@ puppet master --no-daemonize --debug --verbose --trace
 # Puppet master v. 4 in debug mode :
 /opt/puppetlabs/bin/puppetserver foreground --debug</code></pre>
 </div></div>
+<div class="paragraph"><p>Inspect a variable :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>notice(inline_template("&lt;%= @the_var.inspect %&gt;"))</code></pre>
+</div></div>
 </div>
 </div>
 </div>
