@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>IRC - use services</title>
+<title>puppet - inspect a variable</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,26 +544,15 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>IRC - use services</h1>
+<h1>puppet - inspect a variable</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Examples :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>/msg NickServ register &lt;password&gt; &lt;email&gt;
-
-/msg chanserv register #mychannel
-
-/msg operserv mode #mychannel +o louis
-
-/msg operserv mode #mychannel +nt
-/msg operserv mode #mychannel -i
-
-/msg botserv assign #mychannel ChanServ
-
-/msg OperServ stats</code></pre>
+<pre><code>notice(inline_template("&lt;%= @the_var.inspect %&gt;"))
+file {'/tmp/inspect.txt': content =&gt; inline_template('&lt;%= @the_var.to_yaml %&gt;')}</code></pre>
 </div></div>
 </div>
 </div>
