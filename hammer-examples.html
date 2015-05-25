@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>vim - paste</title>
+<title>Hammer - examples</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,76 +544,16 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>vim - paste</h1>
+<h1>Hammer - examples</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>For proper behavior with autoindent/smartindent enabled :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>:set paste</code></pre>
+<pre><code>hammer host list --per-page=9999 --search 'last_report &gt; "40 minutes ago" and status.enabled = true'</code></pre>
 </div></div>
-<div class="paragraph"><p>If necessary, disable the autoindent mode :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>:set noai</code></pre>
-</div></div>
-<div class="paragraph"><p>The basics :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>:help p</code></pre>
-</div></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>["x]p                   Put the text [from register x] after the cursor
-                        [count] times.  {Vi: no count}</code></pre>
-</div></div>
-<div class="paragraph"><p>Paste from clipboard :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>The * register corresponds to the X selection buffer
-(pasted with &lt;MiddleClick&gt;).
-
-The + register corresponds to the system clipboard
-(pasted with &lt;C-v&gt; or Edit-&gt;Paste).
-
-On windows, both registers are for the system clipboard.
-
-To use the clipboard in terminal vim, vim must be built with
-+xterm_clipboard</code></pre>
-</div></div>
-<div class="paragraph"><p>Paste from the X selection buffer :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>"*p</code></pre>
-</div></div>
-<div class="paragraph"><p>Paste from the system clipboard :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>"+p</code></pre>
-</div></div>
-<div class="paragraph"><p>Paste while in insert mode :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>:help i_ctrl-r
-C-r "       paste from the unnamed register (i.e. inserts the last delete or yank)
-C-r *       paste from the X selection buffer
-C-r +       paste from the system clipboard</code></pre>
-</div></div>
-<div class="paragraph"><p>Shortcut to set paste mode and enter insert mode at the same time (to be ready
-to paste from &lt;MiddleClick&gt;) :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>nnoremap &lt;leader&gt;p :set paste&lt;cr&gt;i</code></pre>
-</div></div>
-<div class="paragraph"><p>Paste + new line : you can paste a buffer in insert mode using &lt;C-R&gt; followed
-by the name of the buffer to paste. The default buffer is ", so you would do</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>o&lt;C-R&gt;"</code></pre>
-</div></div>
-<div class="paragraph"><p>Additional tag : vi</p></div>
+<div class="paragraph"><p>Additional tags : satellite, foreman</p></div>
 </div>
 </div>
 </div>
