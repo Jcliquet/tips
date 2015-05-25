@@ -68,4 +68,12 @@ to paste from <MiddleClick>) :
 nnoremap <leader>p :set paste<cr>i
 -----------------------------------------------------------------------------
 
+Paste + new line : you can paste a buffer in insert mode using <C-R> followed
+by the name of the buffer to paste. The default buffer is ", so you would do
+
+------------------------------------------------------------------------------
+o<C-R>"
+-----------------------------------------------------------------------------
+
+
 Additional tag : vi
