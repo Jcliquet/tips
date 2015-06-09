@@ -60,4 +60,4 @@ BOOTPROTO=none
 Tuning parameters
 -----------------
 
-Cf bonding.txt (rpm = kernel-docs)
+Cf bonding.txt (rpm = kernel-doc)
