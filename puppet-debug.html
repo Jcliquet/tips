@@ -571,7 +571,8 @@ puppet master --no-daemonize --debug --verbose --trace
 <div class="paragraph"><p>Inspect a variable :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>notice(inline_template("&lt;%= @the_var.inspect %&gt;"))</code></pre>
+<pre><code>notice(inline_template("&lt;%= @the_var.inspect %&gt;"))
+file {'/tmp/inspect.txt': content =&gt; inline_template('&lt;%= @the_var.to_yaml %&gt;')}</code></pre>
 </div></div>
 </div>
 </div>
