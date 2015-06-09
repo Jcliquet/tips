@@ -626,6 +626,18 @@ NETMASK=255.255.255.0</code></pre>
 <div class="content">
 <pre><code>/sbin/service network restart</code></pre>
 </div></div>
+<div class="paragraph"><p>New method for RHEL 7 :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>DEVICE="eth0"
+ONBOOT="yes"
+IPADDR0=10.0.0.100
+PREFIX0=24
+IPADDR1=10.0.0.101
+PREFIX1=24
+IPADDR2=10.0.0.102
+PREFIX2=24</code></pre>
+</div></div>
 <div class="paragraph"><p>Additional tags : secondary, virtual, network</p></div>
 </div>
 </div>
