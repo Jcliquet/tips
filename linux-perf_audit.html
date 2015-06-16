@@ -625,14 +625,19 @@ l&#8217;hyperthreading
 <div class="paragraph"><p>Attention sur l&#8217;augmentation du nombre de vCPU sur vSphere, ça peut être
 contre-productif s&#8217;il y a contention sur l&#8217;accès aux CPU physiques de
 l&#8217;hyperviseur.</p></div>
-<div class="paragraph"><p>_VMware’s scheduler requires that all the vCPU’s on a VM run concurrently
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>VMware’s scheduler requires that all the vCPU’s on a VM run concurrently
 (even if the Guest OS is trying to execute a single thread).</p></div>
 <div class="paragraph"><p>The 4 vCPU’s on a VM have to wait until all logical pCPU’s on the box are idle
 (including the one that runs ESX itself) before it can run.</p></div>
 <div class="paragraph"><p>If ESX can’t accomplish that (we are experiencing resource contention) it
 starts prioritizing workloads according to what it can best run. It is much
 easier to schedule the smaller VM’s, so it tends to run those on pCPU more
-frequently_</p></div>
+frequently</p></div>
+</div>
+<div class="attribution">
+</div></div>
 <div class="paragraph"><p>Donc il faut tester et vérifier que le CPU ready (métrique dans vSphere)
 n&#8217;est pas élevé sur la VM après ajout des vCPU.</p></div>
 <div class="paragraph"><p>Colonne wa de vmstat : c&#8217;est déjà un très bon indicateur de stress I/O (disque
@@ -681,10 +686,10 @@ I/O aléatoires (et plus pour des I/O séquentiels) avec un temps de service I/O
 correct.</p></div>
 <div class="paragraph"><p>Attention à la pondération RAID ou vRAID.</p></div>
 <div class="paragraph"><p>1 I/O logique = demande du kernel et ce qu&#8217;on voit avec iostat -x</p></div>
-<div class="paragraph"><p>1 IO logique en lecture = 1 IO physique en RAID 1
-1 IO logique en écriture = 2 IO physiques en RAID 1</p></div>
-<div class="paragraph"><p>1 IO logique en lecture = 1 IO physique en RAID 5
-1 IO logique en écriture = 4 IO physiques en RAID 5</p></div>
+<div class="paragraph"><p>1 IO logique en lecture = 1 IO physique en RAID 1</p></div>
+<div class="paragraph"><p>1 IO logique en écriture = 2 IO physiques en RAID 1</p></div>
+<div class="paragraph"><p>1 IO logique en lecture = 1 IO physique en RAID 5</p></div>
+<div class="paragraph"><p>1 IO logique en écriture = 4 IO physiques en RAID 5</p></div>
 <div class="paragraph"><p>Par exemple, si on voit avec iostat 100 r/s et 100 w/s et que l&#8217;on sait que le
 backend est un RAID 5, il faut 100+4x100 = 500 IO physiques pour soutenir la
 charge. Donc 3 disques SAS ou FC 15 ktpm. Sachant qu&#8217;il y des caches sur les
