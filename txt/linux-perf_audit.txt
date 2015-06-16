@@ -87,7 +87,8 @@ Attention sur l'augmentation du nombre de vCPU sur vSphere, ça peut être
 contre-productif s'il y a contention sur l'accès aux CPU physiques de
 l'hyperviseur.
 
-_VMware’s scheduler requires that all the vCPU’s on a VM run concurrently
+_____________________________________________________________________________
+VMware’s scheduler requires that all the vCPU’s on a VM run concurrently
 (even if the Guest OS is trying to execute a single thread).
 
 The 4 vCPU’s on a VM have to wait until all logical pCPU’s on the box are idle
@@ -96,7 +97,9 @@ The 4 vCPU’s on a VM have to wait until all logical pCPU’s on the box are id
 If ESX can’t accomplish that (we are experiencing resource contention) it
 starts prioritizing workloads according to what it can best run. It is much
 easier to schedule the smaller VM’s, so it tends to run those on pCPU more
-frequently_
+frequently
+_____________________________________________________________________________
+
 
 Donc il faut tester et vérifier que le CPU ready (métrique dans vSphere)
 n'est pas élevé sur la VM après ajout des vCPU.
@@ -144,9 +147,11 @@ Attention à la pondération RAID ou vRAID.
 1 I/O logique = demande du kernel et ce qu'on voit avec iostat -x
 
 1 IO logique en lecture = 1 IO physique en RAID 1
+
 1 IO logique en écriture = 2 IO physiques en RAID 1
 
 1 IO logique en lecture = 1 IO physique en RAID 5
+
 1 IO logique en écriture = 4 IO physiques en RAID 5
 
 Par exemple, si on voit avec iostat 100 r/s et 100 w/s et que l'on sait que le
