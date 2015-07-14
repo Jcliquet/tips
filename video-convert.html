@@ -552,9 +552,10 @@ asciidoc.install();
 <div class="listingblock">
 <div class="content">
 <pre><code>ffmpeg -i input.ext -c:v libx264 -crf 23 output.mp4
-ffmpeg -i in.mov -vcodec h264 -acodec aac -strict -2 out.mp4</code></pre>
+ffmpeg -i in.mov -vcodec h264 -acodec aac -strict -2 out.mp4
+ffmpeg -fflags +genpts -i in.webm -vcodec h264 -acodec aac -r 24 out.mp4</code></pre>
 </div></div>
-<div class="paragraph"><p>Additional tags : h264, mp4</p></div>
+<div class="paragraph"><p>Additional tags : h264, mp4, webm</p></div>
 </div>
 </div>
 </div>
