@@ -568,6 +568,8 @@ not be updated) :</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>user = User.find_by(email: 'admin@local.host')
+# or
+user = User.find_by(name: 'Administrator')
 user.password = 'secret_pass'
 user.password_confirmation = 'secret_pass'
 user.save</code></pre>
