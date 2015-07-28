@@ -552,7 +552,12 @@ asciidoc.install();
 <div class="paragraph"><p>Examples :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>/msg NickServ register &lt;password&gt; &lt;email&gt;
+<pre><code>/msg nickserv register &lt;password&gt; &lt;email&gt;
+
+/nick &lt;nick&gt;
+/msg nickserv identify &lt;password&gt;
+
+/msg nickserv set secure on
 
 /msg chanserv register #mychannel
 
@@ -563,7 +568,18 @@ asciidoc.install();
 
 /msg botserv assign #mychannel ChanServ
 
-/msg OperServ stats</code></pre>
+/msg operserv stats</code></pre>
+</div></div>
+<div class="paragraph"><p>Regaining control of a nick :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>/msg nickserv ghost &lt;nick&gt; &lt;password&gt;
+/nick &lt;nick&gt;
+/msg nickserv identify &lt;password&gt;
+
+# If it's not enough :
+/msg nickserv recover &lt;nick&gt; &lt;password&gt;
+/msg nickserv release &lt;nick&gt; &lt;password&gt;</code></pre>
 </div></div>
 </div>
 </div>
