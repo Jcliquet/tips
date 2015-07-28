@@ -559,6 +559,15 @@ rpm -ivh the_package.src.rpm
 cd $(rpm --eval %_topdir)
 rpmbuild -bb SPECS/the_package.spec</code></pre>
 </div></div>
+<div class="paragraph"><p>Build with SCL (example : a ruby gem):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>yum -y install centos-release-SCL
+yum -y install scl-utils-build ruby193 ruby193-rubygems-devel \
+ruby193-rubygem-bundler ruby193-rubygem-rake
+rpmbuild -ba rubygem-foo.spec --define 'scl ruby193'</code></pre>
+</div></div>
+<div class="paragraph"><p>Additional tags : scl, rhscl, software, collections</p></div>
 </div>
 </div>
 </div>
