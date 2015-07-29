@@ -4,25 +4,32 @@ gnome 3 - custom shortcuts
 With a standard user :
 
 [source, sh]
---------------------------------------------------------------------------------
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']"
+-----------------------------------------------------------------------------
+s='org.gnome.settings-daemon.plugins.media-keys' # schema
+p='/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings' # path
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Primary><Alt>v'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'gvim'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Graphical Vim'
+gsettings set $s custom-keybindings \
+  "['$p/custom0/','$p/custom1/','$p/custom2/', '$p/custom3/', '$p/custom4/']"
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Primary><Alt>t'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'gnome-terminal'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Open a terminal window'
+gsettings set ${s}.custom-keybinding:${p}/custom0/ binding '<Primary><Alt>v'
+gsettings set ${s}.custom-keybinding:${p}/custom0/ command 'gvim'
+gsettings set ${s}.custom-keybinding:${p}/custom0/ name 'Graphical Vim'
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding '<Primary><Alt>f'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command 'iceweasel'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name 'Firefox'
+gsettings set ${s}.custom-keybinding:${p}/custom1/ binding '<Primary><Alt>t'
+gsettings set ${s}.custom-keybinding:${p}/custom1/ command 'gnome-terminal --tab --tab'
+gsettings set ${s}.custom-keybinding:${p}/custom1/ name 'Terminal'
 
+gsettings set ${s}.custom-keybinding:${p}/custom2/ binding '<Primary><Alt>f'
+gsettings set ${s}.custom-keybinding:${p}/custom2/ command 'iceweasel'
+gsettings set ${s}.custom-keybinding:${p}/custom2/ name 'Firefox'
 
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding '<Primary><Alt>g'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command 'chromium --incognito'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name 'Chromium'
---------------------------------------------------------------------------------
+gsettings set ${s}.custom-keybinding:${p}/custom3/ binding '<Primary><Alt>d'
+gsettings set ${s}.custom-keybinding:${p}/custom3/ command 'tilda'
+gsettings set ${s}.custom-keybinding:${p}/custom3/ name 'Tilda + DVTM'
+
+gsettings set ${s}.custom-keybinding:${p}/custom4/ binding '<Primary><Alt>g'
+gsettings set ${s}.custom-keybinding:${p}/custom4/ command 'chromium'
+gsettings set ${s}.custom-keybinding:${p}/custom4/ name 'Chromium'
+-----------------------------------------------------------------------------
 
 Additional tags : gnome3, tweak
