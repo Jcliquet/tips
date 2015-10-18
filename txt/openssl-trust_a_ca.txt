@@ -1,0 +1,18 @@
+openssl - trust a custom CA
+===========================
+
+Adding trusted root certificates.
+
+------------------------------------------------------------------------------
+openssldir=$(openssl version -a | awk -F'"' '/OPENSSLDIR/ { print $2 }')
+
+cp ca_cert.pem $openssldir/certs/my_ca.crt
+
+cd $openssldir/certs
+
+ln -s my_ca.crt `openssl x509 -hash -noout -in my_ca.crt`.0
+-----------------------------------------------------------------------------
+
+
+Additional tags : ssl, certificate, authority, ca, cert, root
+
