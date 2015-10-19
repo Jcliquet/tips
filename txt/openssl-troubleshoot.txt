@@ -7,6 +7,20 @@ Display the information on a cert. or CA cert. :
 openssl x509 -in mycert.pem -noout -text
 -----------------------------------------------------------------------------
 
+Verify a cert with the CA :
+
+------------------------------------------------------------------------------
+openssl verify -verbose -CAfile cacert.pem cert.pem
+-----------------------------------------------------------------------------
+
+Verify the match between a cert and a (rsa) key
+
+-----------------------------------------------------------------------------
+openssl rsa  -noout -modulus -in key.pem
+openssl x509 -noout -modulus -in cert.pem
+# Should match
+-----------------------------------------------------------------------------
+
 Check client + server + ca certs : on the server, execute the following command
 
 -----------------------------------------------------------------------------
