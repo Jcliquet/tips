@@ -554,6 +554,18 @@ asciidoc.install();
 <div class="content">
 <pre><code>openssl x509 -in mycert.pem -noout -text</code></pre>
 </div></div>
+<div class="paragraph"><p>Verify a cert with the CA :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>openssl verify -verbose -CAfile cacert.pem cert.pem</code></pre>
+</div></div>
+<div class="paragraph"><p>Verify the match between a cert and a (rsa) key</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>openssl rsa  -noout -modulus -in key.pem
+openssl x509 -noout -modulus -in cert.pem
+# Should match</code></pre>
+</div></div>
 <div class="paragraph"><p>Check client + server + ca certs : on the server, execute the following command</p></div>
 <div class="listingblock">
 <div class="content">

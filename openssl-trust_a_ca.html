@@ -550,6 +550,7 @@ asciidoc.install();
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph"><p>Adding trusted root certificates.</p></div>
+<div class="paragraph"><p>RedHat-like distributions :</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>openssldir=$(openssl version -a | awk -F'"' '/OPENSSLDIR/ { print $2 }')
@@ -559,6 +560,13 @@ cp ca_cert.pem $openssldir/certs/my_ca.crt
 cd $openssldir/certs
 
 ln -s my_ca.crt `openssl x509 -hash -noout -in my_ca.crt`.0</code></pre>
+</div></div>
+<div class="paragraph"><p>Debian-like distributions :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>sudo cp foo.crt /usr/local/share/ca-certificates/foo.crt
+sudo update-ca-certificates
+# The certs and hash links are installed in /etc/ssl/certs</code></pre>
 </div></div>
 <div class="paragraph"><p>Additional tags : ssl, certificate, authority, ca, cert, root</p></div>
 </div>
