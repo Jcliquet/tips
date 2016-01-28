@@ -39,7 +39,11 @@ gsettings set org.gnome.nautilus.preferences enable-delete 'true'
 
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 
+# Old key :
 GSETTINGS_BACKEND=dconf gsettings set org.gnome.shell.overrides button-layout ":minimize,maximize,close"
+
+# New key :
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
 dconf read /org/gnome/shell/enabled-extensions # you can write also...
 --------------------------------------------------------------------------------
