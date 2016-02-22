@@ -584,7 +584,18 @@ gsettings <span class="nb">set </span>org.gnome.nautilus.preferences <span class
 
 gsettings <span class="nb">set </span>org.gnome.nautilus.preferences default-folder-viewer <span class="s1">&#39;list-view&#39;</span>
 
+gsettings <span class="nb">set </span>org.gnome.desktop.wm.preferences audible-bell <span class="nb">false</span>
+
+gsettings <span class="nb">set </span>org.gnome.desktop.wm.preferences visual-bell <span class="nb">true</span>
+
+gsettings <span class="nb">set </span>org.gnome.desktop.wm.preferences visual-bell-type frame-flash
+
+
+<span class="c"># Old key :</span>
 <span class="nv">GSETTINGS_BACKEND</span><span class="o">=</span>dconf gsettings <span class="nb">set </span>org.gnome.shell.overrides button-layout <span class="s2">&quot;:minimize,maximize,close&quot;</span>
+
+<span class="c"># New key :</span>
+gsettings <span class="nb">set </span>org.gnome.desktop.wm.preferences button-layout <span class="s1">&#39;appmenu:minimize,maximize,close&#39;</span>
 
 dconf <span class="nb">read</span> /org/gnome/shell/enabled-extensions <span class="c"># you can write also...</span>
 </pre></div></div></div>
