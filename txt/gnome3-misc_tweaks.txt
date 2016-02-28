@@ -45,6 +45,8 @@ gsettings set org.gnome.desktop.wm.preferences visual-bell true
 
 gsettings set org.gnome.desktop.wm.preferences visual-bell-type frame-flash
 
+# Change the max screencast duration
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 600
 
 # Old key :
 GSETTINGS_BACKEND=dconf gsettings set org.gnome.shell.overrides button-layout ":minimize,maximize,close"
