@@ -37,7 +37,7 @@ gsettings set ${s}.${c}-keybinding:${p}/${c}5/ command 'wmctrl -a "GVIM"'
 gsettings set ${s}.${c}-keybinding:${p}/${c}5/ name    'Switch to Graphical Vim'
 
 gsettings set ${s}.${c}-keybinding:${p}/${c}6/ binding '<Super>f'
-gsettings set ${s}.${c}-keybinding:${p}/${c}6/ command 'wmctrl -a "Iceweasel"'
+gsettings set ${s}.${c}-keybinding:${p}/${c}6/ command 'wmctrl -a "Mozilla Firefox"'
 gsettings set ${s}.${c}-keybinding:${p}/${c}6/ name    'Switch to Firefox'
 
 gsettings set ${s}.${c}-keybinding:${p}/${c}7/ binding '<Super>g'
