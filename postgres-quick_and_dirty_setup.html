@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>gnome 3 - custom shortcuts</title>
+<title>Postgres server - quick and dirty setup</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,53 +544,59 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>gnome 3 - custom shortcuts</h1>
+<h1>Postgres server - quick and dirty setup</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>With a standard user :</p></div>
+<div class="paragraph"><p>For Postgres 9.6 on Centos 7</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre><span class="nv">s</span><span class="o">=</span><span class="s1">&#39;org.gnome.settings-daemon.plugins.media-keys&#39;</span> <span class="c"># schema</span>
-<span class="nv">p</span><span class="o">=</span><span class="s1">&#39;/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings&#39;</span> <span class="c"># path</span>
-<span class="nv">c</span><span class="o">=</span><span class="s1">&#39;custom&#39;</span>
+<div class="content"><div class="highlight"><pre>sudo rpm -ivh <span class="se">\</span>
+https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
 
-gsettings <span class="nb">set</span> <span class="nv">$s</span> custom-keybindings <span class="se">\</span>
-  <span class="s2">&quot;[&#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">0/&#39;,&#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">1/&#39;,&#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">2/&#39;, &#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">3/&#39;, &#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">4/&#39;, &#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">5/&#39;, &#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">6/&#39;, &#39;</span><span class="nv">$p</span><span class="s2">/</span><span class="si">${</span><span class="nv">c</span><span class="si">}</span><span class="s2">7/&#39;]&quot;</span>
+sudo yum -y install postgresql96-server postgresql96-contrib postgresql96-devel
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>0/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;v&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>0/ <span class="nb">command</span> <span class="s1">&#39;gvim&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>0/ name    <span class="s1">&#39;Graphical Vim&#39;</span>
+sudo /usr/pgsql-9.6/bin/postgresql96-setup initdb
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>1/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;t&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>1/ <span class="nb">command</span> <span class="s1">&#39;gnome-terminal --tab --tab&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>1/ name    <span class="s1">&#39;Terminal&#39;</span>
+sudo systemctl start postgresql-9.6.service
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>2/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;e&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>2/ <span class="nb">command</span> <span class="s1">&#39;terminator -m -f -b&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>2/ name    <span class="s1">&#39;Terminator&#39;</span>
+sudo systemctl status postgresql-9.6.service
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>3/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;f&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>3/ <span class="nb">command</span> <span class="s1">&#39;iceweasel&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>3/ name    <span class="s1">&#39;Firefox&#39;</span>
+<span class="c"># Post configuration</span>
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>4/ binding <span class="s1">&#39;&lt;Primary&gt;&lt;Alt&gt;g&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>4/ <span class="nb">command</span> <span class="s1">&#39;chromium&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>4/ name    <span class="s1">&#39;Chrome&#39;</span>
+sudo yum -y install augeas vim
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>5/ binding <span class="s1">&#39;&lt;Super&gt;v&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>5/ <span class="nb">command</span> <span class="s1">&#39;wmctrl -a &quot;GVIM&quot;&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>5/ name    <span class="s1">&#39;Switch to Graphical Vim&#39;</span>
+sudo augtool -s <span class="s2">&quot;set /files/var/lib/pgsql/9.6/data/postgresql.conf/listen_addresses &#39;*&#39;&quot;</span>
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>6/ binding <span class="s1">&#39;&lt;Super&gt;f&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>6/ <span class="nb">command</span> <span class="s1">&#39;wmctrl -a &quot;Mozilla Firefox&quot;&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>6/ name    <span class="s1">&#39;Switch to Firefox&#39;</span>
+sudo systemctl restart postgresql-9.6.service
 
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>7/ binding <span class="s1">&#39;&lt;Super&gt;g&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>7/ <span class="nb">command</span> <span class="s1">&#39;wmctrl -a &quot;Chromium&quot;&#39;</span>
-gsettings <span class="nb">set</span> <span class="si">${</span><span class="nv">s</span><span class="si">}</span>.<span class="si">${</span><span class="nv">c</span><span class="si">}</span>-keybinding:<span class="si">${</span><span class="nv">p</span><span class="si">}</span>/<span class="si">${</span><span class="nv">c</span><span class="si">}</span>7/ name    <span class="s1">&#39;Switch to Chrome&#39;</span>
+ss -plantu <span class="p">|</span> awk <span class="s1">&#39;/LISTEN/ &amp;&amp; /5432/&#39;</span>
+
+cat<span class="s">&lt;&lt;&#39;EOF&#39;&gt;/tmp/addhbarule.txt</span>
+<span class="s">defvar pghba /files/var/lib/pgsql/9.6/data/pg_hba.conf</span>
+<span class="s">insert 01 before $pghba/1</span>
+<span class="s">set $pghba/01/type host</span>
+<span class="s">set $pghba/01/database all</span>
+<span class="s">set $pghba/01/user bob</span>
+<span class="s">set $pghba/01/address 10.0.1.0/24</span>
+<span class="s">set $pghba/01/method md5</span>
+<span class="s">save</span>
+<span class="s">EOF</span>
+
+sudo augtool &lt; /tmp/addhbarule.txt
+
+<span class="nb">cd</span> /
+
+sudo -u postgres createuser -d -r -s bob -w
+
+sudo -u postgres psql -c <span class="s2">&quot;ALTER USER bob WITH PASSWORD &#39;plokiploki&#39;;&quot;</span>
+
+sudo systemctl reload postgresql-9.6.service
 </pre></div></div></div>
-<div class="paragraph"><p>Additional tags : gnome3, tweak</p></div>
+<div class="paragraph"><p>Test with :</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre>sudo -u postgres createuser -d -r -s bob -w
+</pre></div></div></div>
 </div>
 </div>
 </div>
