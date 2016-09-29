@@ -16,6 +16,10 @@ sudo systemctl start postgresql-9.6.service
 
 sudo systemctl status postgresql-9.6.service
 
+sudo systemctl enable postgresql-9.6.service
+
+sudo systemctl is-enabled postgresql-9.6.service
+
 # Post configuration
 
 sudo yum -y install augeas vim
