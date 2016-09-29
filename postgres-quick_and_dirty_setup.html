@@ -562,6 +562,10 @@ sudo systemctl start postgresql-9.6.service
 
 sudo systemctl status postgresql-9.6.service
 
+sudo systemctl <span class="nb">enable </span>postgresql-9.6.service
+
+sudo systemctl is-enabled postgresql-9.6.service
+
 <span class="c"># Post configuration</span>
 
 sudo yum -y install augeas vim
@@ -595,7 +599,7 @@ sudo systemctl reload postgresql-9.6.service
 </pre></div></div></div>
 <div class="paragraph"><p>Test with :</p></div>
 <div class="listingblock">
-<div class="content"><div class="highlight"><pre>sudo -u postgres createuser -d -r -s bob -w
+<div class="content"><div class="highlight"><pre>psql -U bob -W -h <span class="k">$(</span>hostname -s<span class="k">)</span> postgres -c <span class="s1">&#39;\l&#39;</span>
 </pre></div></div></div>
 </div>
 </div>
