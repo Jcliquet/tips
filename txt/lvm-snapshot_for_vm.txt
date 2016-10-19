@@ -50,7 +50,7 @@ ssh bob@el6 'ls ~/probe.txt'
 
 # You could also stay on the snapshot but revert it from time to time
 lvremove /dev/vg0/vmel6snap
-lvcreate -s -n vmel6snap -L+500M /dev/vg0/vmel6 # back to originale clean state
+lvcreate -s -n vmel6snap -L+500M /dev/vg0/vmel6 # back to original clean state
 -----------------------------------------------------------------------------
 
 Additional tags : lvm, vm, lab, snapshot, revert
