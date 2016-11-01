@@ -9,3 +9,12 @@ killall zeitgeist-datahub
 find ~/.local/share/zeitgeist/ -type f -exec shred {} \;
 rm -rf ~/.local/share/zeitgeist/*
 -----------------------------------------------------------------------------
+
+You can check the activity history with :
+
+-----------------------------------------------------------------------------
+zeitgeist-explorer
+gnome-activity-journal
+-----------------------------------------------------------------------------
+
+
