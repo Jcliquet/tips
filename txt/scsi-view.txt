@@ -11,6 +11,7 @@ cat /sys/class/scsi_host/host1/{state,node_name}
 cat /etc/udev/rules.d/50-udev.rules
 ls -ls /dev/sd*
 ls -l /dev/disk/by-path/*
+lsblk
 --------------------------------------------------------------------------------
 
 Additional tags : scan, map, mapping, viewing
