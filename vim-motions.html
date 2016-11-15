@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title></title>
+<title>vim - motions</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,10 +544,10 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
+<h1>vim - motions</h1>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_vim_motions">vim - motions</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -570,16 +570,48 @@ asciidoc.install();
 |          |                        |           |                     | $ end of line             |
 +----------+------------------------+-----------+---------------------+---------------------------+</code></pre>
 </div></div>
-<div class="paragraph"><p>(*) with the surround plugin</p></div>
-<div class="paragraph"><p>Examples :</p></div>
-<div class="paragraph"><p><code>F"</code> find previous double quote</p></div>
-<div class="paragraph"><p><code>vip</code> visual inner paragraph</p></div>
-<div class="paragraph"><p><code>ct)</code> change from cursor to the next bracket</p></div>
-<div class="paragraph"><p><code>di'</code> delete in quotes</p></div>
-<div class="paragraph"><p><code>d2w</code> delete 2 words</p></div>
-<div class="paragraph"><p><code>daB</code> delete a block</p></div>
-<div class="paragraph"><p><code>cs'"</code> change surrounding simple quotes to double quotes</p></div>
-<div class="paragraph"><p>See also : <code>:help motion.txt</code></p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples">Examples</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre><code>F"      find previous double quote</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>vip     visual inner paragraph</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>ct)     change from cursor to the next bracket</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>di'     delete in quotes</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>d2w     delete 2 words</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>daB     delete a block</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>cs'"    change surrounding simple quotes to double quotes</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also">See also</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre><code>:help motion.txt</code></pre>
+</div></div>
 </div>
 </div>
 </div>
