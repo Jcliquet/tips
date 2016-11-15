@@ -546,31 +546,42 @@ asciidoc.install();
 <div id="header">
 </div>
 <div id="content">
-<div class="paragraph"><p>Zeitgeist is a service which logs user activities and events.</p></div>
-<div class="paragraph"><p>This will purge the activity history, but won&#8217;t remove the daemon :</p></div>
+<div class="sect1">
+<h2 id="_vim_motions">vim - motions</h2>
+<div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre><code>zeitgeist-daemon --quit
-killall zeitgeist-daemon
-killall zeitgeist-datahub
-find ~/.local/share/zeitgeist/ -type f -exec shred {} \;
-rm -rf ~/.local/share/zeitgeist/*</code></pre>
+<pre><code>+----------+------------------------+-----------+---------------------+---------------------------+
+| Operator |    Extent modifier     | Full line |       Extent        |          Target           |
++----------+------------------------+-----------+---------------------+---------------------------+
+|          | usually related        |           | Text object         | left-right, word,         |
+|          | to the line            |           | selection, etc.     | text object motions, etc. |
++----------+------------------------+-----------+---------------------+---------------------------+
+| a append | A (at eol)             |           | a 'a' (aw='a word') | b back word               |
+| c change | C (from cursor to eol) |           | i innner            | B Block ({...})           |
+| d delete | D (from cursor to eol) | dd        | s surround(*)       | e end of word             |
+| f find   | F (previous)           |           | t to                | p paragraph               |
+| i insert | I (at start of line)   |           | 1,2,3,...           | s sentence                |
+| o open   | O (line before)        |           |                     | t tag                     |
+| v visual | V (visual line)        |           |                     | w word                    |
+| y yank   |                        | yy        |                     | W big_word                |
+|          |                        |           |                     | '," quotes                |
+|          |                        |           |                     | (,[,{                     |
+|          |                        |           |                     | $ end of line             |
++----------+------------------------+-----------+---------------------+---------------------------+</code></pre>
 </div></div>
-<div class="paragraph"><p>You can check the activity history with :</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>zeitgeist-explorer
-gnome-activity-journal
-activity-log-manager</code></pre>
-</div></div>
-<div class="paragraph"><p>Check also the activity for Tracker with</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>tracker-preferences
-# Purge with :
-tracker-control -r
-tracker-control -S</code></pre>
-</div></div>
+<div class="paragraph"><p>(*) with the surround plugin</p></div>
+<div class="paragraph"><p>Examples :</p></div>
+<div class="paragraph"><p><code>F"</code> find previous double quote</p></div>
+<div class="paragraph"><p><code>vip</code> visual inner paragraph</p></div>
+<div class="paragraph"><p><code>ct)</code> change from cursor to the next bracket</p></div>
+<div class="paragraph"><p><code>di'</code> delete in quotes</p></div>
+<div class="paragraph"><p><code>d2w</code> delete 2 words</p></div>
+<div class="paragraph"><p><code>daB</code> delete a block</p></div>
+<div class="paragraph"><p><code>cs'"</code> change surrounding simple quotes to double quotes</p></div>
+<div class="paragraph"><p>See also : <code>:help motion.txt</code></p></div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
