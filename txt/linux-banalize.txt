@@ -8,9 +8,12 @@ Use case : before making a VM template
 test $EUID -eq 0 || { echo "Run this script as root"; exit 1; }
 rm -rf /etc/ssh/*key /etc/ssh/*.pub
 sed -i 's/HOSTNAME=.*$/HOSTNAME=localhost/g' /etc/sysconfig/network
-sed -i '/HWADDR=/d' /etc/sysconfig/network-scripts/ifcfg-eth*
-sed -i '/UUID=/d' /etc/sysconfig/network-scripts/ifcfg-eth*
-sed -i 's/^IPADDR=/#IPADDR=/g' /etc/sysconfig/network-scripts/ifcfg-eth*
+echo 'localhost' > /etc/hostname
+find /etc/sysconfig/network-scripts -name ifcfg-* | while read cfg;do
+  sed -i '/HWADDR=/d' $cfg
+  sed -i '/UUID=/d' $cfg
+  sed -i 's/^IPADDR=/#IPADDR=/g' $cfg
+done
 sed -i '/# PCI device/d' /etc/udev/rules.d/70-persistent-net.rules
 sed -i '/ATTR{address}/d' /etc/udev/rules.d/70-persistent-net.rules
 yum clean all
