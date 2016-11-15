@@ -22,5 +22,8 @@ Check also the activity for Tracker with
 
 -----------------------------------------------------------------------------
 tracker-preferences
+# Purge with :
+tracker-control -r
+tracker-control -S
 -----------------------------------------------------------------------------
 
