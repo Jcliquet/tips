@@ -554,9 +554,12 @@ asciidoc.install();
 <div class="content"><div class="highlight"><pre><span class="nb">test</span> <span class="nv">$EUID</span> -eq <span class="m">0</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Run this script as root&quot;</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
 rm -rf /etc/ssh/*key /etc/ssh/*.pub
 sed -i <span class="s1">&#39;s/HOSTNAME=.*$/HOSTNAME=localhost/g&#39;</span> /etc/sysconfig/network
-sed -i <span class="s1">&#39;/HWADDR=/d&#39;</span> /etc/sysconfig/network-scripts/ifcfg-eth*
-sed -i <span class="s1">&#39;/UUID=/d&#39;</span> /etc/sysconfig/network-scripts/ifcfg-eth*
-sed -i <span class="s1">&#39;s/^IPADDR=/#IPADDR=/g&#39;</span> /etc/sysconfig/network-scripts/ifcfg-eth*
+<span class="nb">echo</span> <span class="s1">&#39;localhost&#39;</span> &gt; /etc/hostname
+find /etc/sysconfig/network-scripts -name ifcfg-* <span class="p">|</span> <span class="k">while</span> <span class="nb">read </span>cfg<span class="p">;</span><span class="k">do</span>
+  sed -i <span class="s1">&#39;/HWADDR=/d&#39;</span> <span class="nv">$cfg</span>
+  sed -i <span class="s1">&#39;/UUID=/d&#39;</span> <span class="nv">$cfg</span>
+  sed -i <span class="s1">&#39;s/^IPADDR=/#IPADDR=/g&#39;</span> <span class="nv">$cfg</span>
+<span class="k">done</span>
 sed -i <span class="s1">&#39;/# PCI device/d&#39;</span> /etc/udev/rules.d/70-persistent-net.rules
 sed -i <span class="s1">&#39;/ATTR{address}/d&#39;</span> /etc/udev/rules.d/70-persistent-net.rules
 yum clean all
