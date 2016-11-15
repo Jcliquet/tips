@@ -38,7 +38,8 @@ modinfo xfs
 
 find /etc/udev/rules.d/
 
-egrep 'physical id|core id|cpu cores|siblings' /proc/cpuinfo | sort
+egrep 'physical id|core id|cpu cores|siblings' /proc/cpuinfo | sort -u
+LANG=c lscpu | egrep '^Core\(|^Thread\(|^CPU\(|Socket'
 
 inxi -G # (repo EPEL)
 inxi -b
