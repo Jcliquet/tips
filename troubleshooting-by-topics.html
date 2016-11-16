@@ -898,7 +898,8 @@ sudoreplay -l fromdate "last week" user bob # with LOG_INPUT</code></pre>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre><code>yum -y install setroubleshoot-server
+<pre><code>getenforce
+yum -y install setroubleshoot-server
 setenforce Permissive
 /sbin/service auditd restart
 tail /var/log/audit.log
