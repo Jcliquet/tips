@@ -641,8 +641,8 @@ xfs_info /dev/sdx
 xfs_growfs /dev/sdx
 umount /mnt/point; xfs_repair /mnt/point
 
-xfs_db -c frag -r /dev/sdx
-man xfs_fsr
+xfs_db -c frag -r /dev/sdx # Check fragmentation rate
+man xfs_fsr                # Defragment
 
 # File recovery :
 yum -y install scalpel
