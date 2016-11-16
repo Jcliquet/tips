@@ -589,6 +589,7 @@ x86info # pkg name = x86info
 
 lsmod
 modinfo xfs
+rmmod pcspkr
 
 find /etc/udev/rules.d/
 
@@ -820,6 +821,7 @@ chkconfig --list
 service httpd status
 find /etc/init.d/
 runlevel
+grep default /etc/inittab
 find /etc/rc$(runlevel | awk '{print $2}').d/
 
 
