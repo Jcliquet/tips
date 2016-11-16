@@ -248,6 +248,7 @@ chkconfig --list
 service httpd status
 find /etc/init.d/
 runlevel
+grep default /etc/inittab
 find /etc/rc$(runlevel | awk '{print $2}').d/
 
 
