@@ -150,8 +150,8 @@ cat /etc/sysconfig/network
 hostnamectl status # el7
 cat /etc/hostname  # el7
 
-ss -ntaup # in the server
-nmap      # from the outside
+ss -plantu # in the server
+nmap       # from the outside
 
 tcpdump -ttt -i eth0 udp port 2049
 tcpdump -vvv -i any port 80 # Flags [S] = syn, [S.] = syn-ack, [.] = ack, [R] = rst, [F]=fin(ish), etc.
