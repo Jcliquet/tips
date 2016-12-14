@@ -284,11 +284,22 @@ last
 LANG=c lastlog | grep -vi never
 
 less /etc/nsswitch.conf
+cat /etc/sysconfig/authconfig
+authconfig-tui
 
 getent passwd
 getent group
+
+cat /etc/pam.d/*
 -----------------------------------------------------------------------------
 
+== Sessions
+
+-----------------------------------------------------------------------------
+cat /etc/security/limits.conf
+cat /etc/profile
+cat /etc/profile.d/*.sh
+-----------------------------------------------------------------------------
 
 
 == Security
