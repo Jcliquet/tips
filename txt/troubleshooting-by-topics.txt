@@ -334,7 +334,7 @@ sudoreplay -l fromdate "last week" user bob # with LOG_INPUT
 getenforce
 yum -y install setroubleshoot-server
 /sbin/service auditd restart
-tail /var/log/audit.log
+tail /var/log/audit/audit.log
 tail /var/log/messages
 sealert -a /var/log/audit/audit.log
 -----------------------------------------------------------------------------
