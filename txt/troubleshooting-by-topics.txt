@@ -28,6 +28,8 @@ find /etc/rsyslog.d/
 -----------------------------------------------------------------------------
 lscpu
 lsblk
+lsblk --fs
+blkid
 lsusb   # pkg name = usbutils
 lshal --tree
 dmidecode
