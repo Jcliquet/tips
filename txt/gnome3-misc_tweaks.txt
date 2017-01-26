@@ -35,7 +35,12 @@ gsettings set org.gnome.nautilus.desktop trash-icon-visible false
 
 gsettings set org.gnome.nautilus.desktop volumes-visible false
 
-gsettings set org.gnome.nautilus.preferences enable-delete 'true'
+gsettings set org.gnome.nautilus.preferences enable-delete true
+
+# or :
+
+gsettings set org.gnome.nautilus.preferences show-delete-permanently true
+# Cf gsettings list-recursively | grep nautilus
 
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 
