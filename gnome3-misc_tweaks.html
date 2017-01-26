@@ -580,7 +580,12 @@ gsettings <span class="nb">set </span>org.gnome.nautilus.desktop trash-icon-visi
 
 gsettings <span class="nb">set </span>org.gnome.nautilus.desktop volumes-visible <span class="nb">false</span>
 
-gsettings <span class="nb">set </span>org.gnome.nautilus.preferences <span class="nb">enable</span>-delete <span class="s1">&#39;true&#39;</span>
+gsettings <span class="nb">set </span>org.gnome.nautilus.preferences <span class="nb">enable</span>-delete <span class="nb">true</span>
+
+<span class="c"># or :</span>
+
+gsettings <span class="nb">set </span>org.gnome.nautilus.preferences show-delete-permanently <span class="nb">true</span>
+<span class="c"># Cf gsettings list-recursively | grep nautilus</span>
 
 gsettings <span class="nb">set </span>org.gnome.nautilus.preferences default-folder-viewer <span class="s1">&#39;list-view&#39;</span>
 
