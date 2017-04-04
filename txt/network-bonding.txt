@@ -8,8 +8,8 @@ For availability.
 
 == New method : teaming for el7
 
-Cf https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Ne
-tworking_Guide/sec-Comparison_of_Network_Teaming_to_Bonding.html
+Cf
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/sec-Comparison_of_Network_Teaming_to_Bonding.html
 
 With nmcli (example) :
 
