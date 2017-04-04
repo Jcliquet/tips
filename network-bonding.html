@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>network - Linux network bonding (teaming)</title>
+<title>network - Linux network bonding or teaming</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,7 +544,7 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>network - Linux network bonding (teaming)</h1>
+<h1>network - Linux network bonding or teaming</h1>
 </div>
 <div id="content">
 <div class="sect1">
@@ -554,8 +554,43 @@ asciidoc.install();
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configure_the_module">Configure the module</h2>
+<h2 id="_new_method_teaming_for_el7">New method : teaming for el7</h2>
 <div class="sectionbody">
+<div class="paragraph"><p>Cf <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Ne">https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Ne</a>
+tworking_Guide/sec-Comparison_of_Network_Teaming_to_Bonding.html</p></div>
+<div class="paragraph"><p>With nmcli (example) :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>yum -y install at mutt teamd
+systemctl enable atd
+systemctl start atd
+
+cat&lt;&lt;'EOF'&gt;/tmp/teaming.sh
+ifdev1=eno1
+ifdev2=enp2s0
+
+nmcli con del $ifdev1
+nmcli con del $ifdev2
+
+nmcli con add type team con-name team0 ifname team0
+nmcli con add type team-slave con-name team0-port1 ifname $ifdev1 master team0
+nmcli con add type team-slave con-name team0-port2 ifname $ifdev2 master team0
+nmcli connection up team0
+nmcli connection up team0-port1
+nmcli connection up team0-port2
+EOF
+
+chmod +x /tmp/teaming.sh
+
+echo '/tmp/teaming.sh' | at -q a now</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bonding_for_el5_and_el6">Bonding for el5 and el6</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_configure_the_module">Configure the module</h3>
 <div class="paragraph"><p>el5 : in <code>/etc/modprobe.conf</code></p></div>
 <div class="paragraph"><p>el6 : in <code>/etc/modprobe.d/bond.conf</code></p></div>
 <div class="listingblock">
@@ -563,13 +598,11 @@ asciidoc.install();
 <pre><code>alias bond0 bonding</code></pre>
 </div></div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_configure_the_interfaces">Configure the interfaces</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>In <code>/etc/sysconfig/network-scripts</code></p></div>
 <div class="sect2">
-<h3 id="_ifcfg_bond0">ifcfg-bond0</h3>
+<h3 id="_configure_the_interfaces">Configure the interfaces</h3>
+<div class="paragraph"><p>In <code>/etc/sysconfig/network-scripts</code></p></div>
+<div class="sect3">
+<h4 id="_ifcfg_bond0">ifcfg-bond0</h4>
 <div class="listingblock">
 <div class="content">
 <pre><code>DEVICE=bond0
@@ -580,8 +613,8 @@ BOOTPROTO=none
 BONDING_OPTS="mode=6 miimon=100 use_carrier=0"</code></pre>
 </div></div>
 </div>
-<div class="sect2">
-<h3 id="_ifcfg_eth0">ifcfg-eth0</h3>
+<div class="sect3">
+<h4 id="_ifcfg_eth0">ifcfg-eth0</h4>
 <div class="listingblock">
 <div class="content">
 <pre><code>DEVICE=eth0
@@ -591,8 +624,8 @@ ONBOOT=yes
 BOOTPROTO=none</code></pre>
 </div></div>
 </div>
-<div class="sect2">
-<h3 id="_ifcfg_eth1">ifcfg-eth1</h3>
+<div class="sect3">
+<h4 id="_ifcfg_eth1">ifcfg-eth1</h4>
 <div class="listingblock">
 <div class="content">
 <pre><code>DEVICE=eth1
@@ -601,6 +634,7 @@ SLAVE=yes
 ONBOOT=yes
 BOOTPROTO=none</code></pre>
 </div></div>
+</div>
 </div>
 </div>
 </div>
