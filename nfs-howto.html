@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title>NFS - basic v3 server</title>
+<title>NFS - basic server</title>
 <style type="text/css">
 /* ---------------------------------------------------------------------------
  *  Pryz theme based on Bare Theme (http://tomayko.com/src/adoc-themes/)
@@ -544,12 +544,31 @@ asciidoc.install();
 </head>
 <body class="article">
 <div id="header">
-<h1>NFS - basic v3 server</h1>
+<h1>NFS - basic server</h1>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_nfs_v_4_on_rhel_7">NFS v.4 on RHEL 7</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>On RHEL 6.</p></div>
+<div class="paragraph"><p>Basic, without Kerberos auth.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>yum -y install nfs-utils
+firewall-cmd --zone=public --add-service=nfs --permanent
+firewall-cmd --zone=public --add-service=nfs
+echo '/share 10.0.1.79(rw,sync,no_root_squash) 10.0.1.80(rw,sync,no_root_squash)' &gt;&gt; /etc/exports
+systemctl start rpcbind
+systemctl enable rpcbind
+systemctl start nfs
+systemctl enable nfs
+exportfs -a
+showmount -e</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nfs_v_3_on_rhel_6">NFS v.3 on RHEL 6.</h2>
+<div class="sectionbody">
 <div class="paragraph"><p>Warning : NFS v3 traffic is NOT encrypted. Use NFS v4 for encryption.</p></div>
 <div class="paragraph"><p>At least you should consider using a VLAN and firewall filter rules.</p></div>
 <div class="paragraph"><p>Install the packages.</p></div>
@@ -603,6 +622,7 @@ showmount -e
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
+</div>
 </div>
 </body>
 </html>
