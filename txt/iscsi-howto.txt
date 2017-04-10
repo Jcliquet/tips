@@ -83,7 +83,7 @@ tgtadm --lld iscsi --mode target --op show
 tgt-admin -s
 -----------------------------------------------------------------------------
 
-== Configure the initiator
+=== Configure the initiator
 
 [source, sh]
 -----------------------------------------------------------------------------
