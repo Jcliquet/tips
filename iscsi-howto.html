@@ -616,11 +616,8 @@ tgtadm --lld iscsi --mode target --op show
 tgt-admin -s
 </pre></div></div></div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_configure_the_initiator">Configure the initiator</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_configure_the_initiator">Configure the initiator</h3>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre>yum -y install iscsi-initiator-utils
 grep lu_reset_timeout /etc/iscsi/iscsid.conf <span class="c"># set 10</span>
@@ -635,6 +632,7 @@ ls /var/lib/iscsi/send_targets/
 <div class="paragraph"><p>You should now have a new /dev/sd&lt;x&gt; device available for mounting.</p></div>
 <div class="paragraph"><p>Warning : if you set a mount mapping in <code>/etc/fstab</code> for persistence across
 reboots, use the <code>_netdev</code> option.</p></div>
+</div>
 </div>
 </div>
 </div>
