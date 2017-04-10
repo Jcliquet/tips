@@ -1,10 +1,46 @@
 iSCSI how to on Linux Red Hat
 =============================
 
-Tested on RHEL 6 and Centos 6
+== RHEL 7
 
-Configure the target
---------------------
+=== Configure the target
+
+Let's assume that we want to share a disk = /dev/sdc
+
+Create a logical volume :
+
+[source, sh]
+-----------------------------------------------------------------------------
+pvcreate /dev/sdc
+vgcreate vgiscsi /dev/sdc
+lvcreate -n lviscsi -L+100G vgiscsi
+-----------------------------------------------------------------------------
+
+Now we have a logical volume named `/dev/vgiscsi/lviscsi`
+
+-----------------------------------------------------------------------------
+firewall-cmd --add-service=iscsi-target --permanent
+firewall-cmd --add-service=iscsi-target
+yum -y install targetcli
+systemctl enable target
+targetcli
+/> cd backstores/fileio
+/backstores/fileio> create disk01 /dev/vgiscsi/lviscsi
+/backstores/fileio> cd /iscsi
+/iscsi> create iqn.2017-04.example.lab:storage.target00
+/iscsi> cd iqn.2017-04.example.lab:storage.target00/tpg1/luns
+/iscsi/iqn.20...t00/tpg1/luns> create /backstores/fileio/disk01
+# ACL for initiators :
+/iscsi/iqn.20...t00/tpg1/luns> cd ../acls
+/iscsi/iqn.20...t00/tpg1/acls> create iqn.1998-01.com.vmware:esxlab1-55a41a99
+/iscsi/iqn.20...t00/tpg1/acls> create iqn.1998-01.com.vmware:esxlab2-788b99d8
+/iscsi/iqn.20...t00/tpg1/acls> ls
+-----------------------------------------------------------------------------
+
+
+== RHEL 6 and Centos 6
+
+=== Configure the target
 
 Let's assume that we want to share a disk = /dev/sdc
 
@@ -47,8 +83,7 @@ tgtadm --lld iscsi --mode target --op show
 tgt-admin -s
 -----------------------------------------------------------------------------
 
-Configure the initiator
------------------------
+== Configure the initiator
 
 [source, sh]
 -----------------------------------------------------------------------------
