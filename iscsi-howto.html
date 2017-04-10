@@ -547,14 +547,46 @@ asciidoc.install();
 <h1>iSCSI how to on Linux Red Hat</h1>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_rhel_7">RHEL 7</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Tested on RHEL 6 and Centos 6</p></div>
+<div class="sect2">
+<h3 id="_configure_the_target">Configure the target</h3>
+<div class="paragraph"><p>Let&#8217;s assume that we want to share a disk = /dev/sdc</p></div>
+<div class="paragraph"><p>Create a logical volume :</p></div>
+<div class="listingblock">
+<div class="content"><div class="highlight"><pre>pvcreate /dev/sdc
+vgcreate vgiscsi /dev/sdc
+lvcreate -n lviscsi -L+100G vgiscsi
+</pre></div></div></div>
+<div class="paragraph"><p>Now we have a logical volume named <code>/dev/vgiscsi/lviscsi</code></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>firewall-cmd --add-service=iscsi-target --permanent
+firewall-cmd --add-service=iscsi-target
+yum -y install targetcli
+systemctl enable target
+targetcli
+/&gt; cd backstores/fileio
+/backstores/fileio&gt; create disk01 /dev/vgiscsi/lviscsi
+/backstores/fileio&gt; cd /iscsi
+/iscsi&gt; create iqn.2017-04.example.lab:storage.target00
+/iscsi&gt; cd iqn.2017-04.example.lab:storage.target00/tpg1/luns
+/iscsi/iqn.20...t00/tpg1/luns&gt; create /backstores/fileio/disk01
+# ACL for initiators :
+/iscsi/iqn.20...t00/tpg1/luns&gt; cd ../acls
+/iscsi/iqn.20...t00/tpg1/acls&gt; create iqn.1998-01.com.vmware:esxlab1-55a41a99
+/iscsi/iqn.20...t00/tpg1/acls&gt; create iqn.1998-01.com.vmware:esxlab2-788b99d8
+/iscsi/iqn.20...t00/tpg1/acls&gt; ls</code></pre>
+</div></div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configure_the_target">Configure the target</h2>
+<h2 id="_rhel_6_and_centos_6">RHEL 6 and Centos 6</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_configure_the_target_2">Configure the target</h3>
 <div class="paragraph"><p>Let&#8217;s assume that we want to share a disk = /dev/sdc</p></div>
 <div class="paragraph"><p>Create a logical volume :</p></div>
 <div class="listingblock">
@@ -583,6 +615,7 @@ vim /etc/tgt/targets.conf
 tgtadm --lld iscsi --mode target --op show
 tgt-admin -s
 </pre></div></div></div>
+</div>
 </div>
 </div>
 <div class="sect1">
