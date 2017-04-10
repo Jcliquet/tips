@@ -1,7 +1,25 @@
-NFS - basic v3 server
-=====================
+NFS - basic server
+==================
 
-On RHEL 6.
+== NFS v.4 on RHEL 7
+
+Basic, without Kerberos auth.
+
+-----------------------------------------------------------------------------
+yum -y install nfs-utils
+firewall-cmd --zone=public --add-service=nfs --permanent
+firewall-cmd --zone=public --add-service=nfs
+echo '/share 10.0.1.79(rw,sync,no_root_squash) 10.0.1.80(rw,sync,no_root_squash)' >> /etc/exports
+systemctl start rpcbind
+systemctl enable rpcbind
+systemctl start nfs
+systemctl enable nfs
+exportfs -a
+showmount -e
+-----------------------------------------------------------------------------
+
+
+== NFS v.3 on RHEL 6.
 
 Warning : NFS v3 traffic is NOT encrypted. Use NFS v4 for encryption.
 
