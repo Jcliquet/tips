@@ -552,18 +552,36 @@ asciidoc.install();
 <div class="paragraph"><p>Use case : before making a VM template</p></div>
 <div class="listingblock">
 <div class="content"><div class="highlight"><pre><span class="nb">test</span> <span class="nv">$EUID</span> -eq <span class="m">0</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Run this script as root&quot;</span><span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
-rm -rf /etc/ssh/*key /etc/ssh/*.pub
+
+package-cleanup --oldkernels --count<span class="o">=</span>1
+
+logrotate -f /etc/logrotate.conf
+rm -f /var/log/*-???????? /var/log/*.gz
+rm -f /var/log/dmesg.old
+rm -rf /var/log/anaconda
+
+cat /dev/null &gt; /var/log/audit/audit.log
+cat /dev/null &gt; /var/log/wtmp
+cat /dev/null &gt; /var/log/lastlog
+cat /dev/null &gt; /var/log/grubby
+
+rm -rf /etc/ssh/*key*
+
 sed -i <span class="s1">&#39;s/HOSTNAME=.*$/HOSTNAME=localhost/g&#39;</span> /etc/sysconfig/network
 <span class="nb">echo</span> <span class="s1">&#39;localhost&#39;</span> &gt; /etc/hostname
+
 find /etc/sysconfig/network-scripts -name ifcfg-* <span class="p">|</span> <span class="k">while</span> <span class="nb">read </span>cfg<span class="p">;</span><span class="k">do</span>
-  sed -i <span class="s1">&#39;/HWADDR=/d&#39;</span> <span class="nv">$cfg</span>
-  sed -i <span class="s1">&#39;/UUID=/d&#39;</span> <span class="nv">$cfg</span>
-  sed -i <span class="s1">&#39;s/^IPADDR=/#IPADDR=/g&#39;</span> <span class="nv">$cfg</span>
+  sed -i -e <span class="s1">&#39;/^HWADDR=/d&#39;</span> -e <span class="s1">&#39;/^UUID=/d&#39;</span> -e <span class="s1">&#39;s/^IPADDR=/#IPADDR=/g&#39;</span> <span class="nv">$cfg</span>
 <span class="k">done</span>
-sed -i <span class="s1">&#39;/# PCI device/d&#39;</span> /etc/udev/rules.d/70-persistent-net.rules
-sed -i <span class="s1">&#39;/ATTR{address}/d&#39;</span> /etc/udev/rules.d/70-persistent-net.rules
+
+rm -f /etc/udev/rules.d/*-persistent-*.rules
+
 yum clean all
+
 rm -f /root/.bash_history
+
+touch /.unconfigured
+
 <span class="nb">history</span> -c
 </pre></div></div></div>
 <div class="paragraph"><p>Additional tag : sysprep</p></div>
