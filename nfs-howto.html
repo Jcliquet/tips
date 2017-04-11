@@ -554,8 +554,8 @@ asciidoc.install();
 <div class="listingblock">
 <div class="content">
 <pre><code>yum -y install nfs-utils
-firewall-cmd --zone=public --add-service=nfs --permanent
-firewall-cmd --zone=public --add-service=nfs
+firewall-cmd --add-service=nfs --permanent
+firewall-cmd --add-service=nfs
 echo '/share 10.0.1.79(rw,sync,no_root_squash) 10.0.1.80(rw,sync,no_root_squash)' &gt;&gt; /etc/exports
 systemctl start rpcbind
 systemctl enable rpcbind
